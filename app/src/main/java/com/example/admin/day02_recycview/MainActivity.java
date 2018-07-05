@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 case 2:
                 startActivity(new Intent(MainActivity.this, ThridActivity.class));
                 break;
+                //dongxi
         }
     }
 }
