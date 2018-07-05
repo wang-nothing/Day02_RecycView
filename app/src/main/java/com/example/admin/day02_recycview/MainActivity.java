@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         switch (i){
             case 0:
+                //dsad
                 startActivity(new Intent(MainActivity.this, FristActivity.class));
                 break;
                 case 1:
@@ -37,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 case 2:
                 startActivity(new Intent(MainActivity.this, ThridActivity.class));
                 break;
-                //dongxi
         }
     }
 }
