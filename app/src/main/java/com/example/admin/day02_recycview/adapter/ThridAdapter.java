@@ -4,8 +4,10 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.admin.day02_recycview.Listener.OnItemClickListener;
 import com.example.admin.day02_recycview.R;
 import com.example.admin.day02_recycview.hodler.ImageHolder;
 import com.example.admin.day02_recycview.hodler.ImageLeftHolder;
@@ -23,6 +25,12 @@ public class ThridAdapter extends RecyclerView.Adapter {
     public ThridAdapter(Context context, List<String> datas) {
         this.context = context;
         this.datas = datas;
+    }
+
+    private OnItemClickListener listener;
+
+    public void setListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 
     @NonNull
@@ -44,11 +52,19 @@ public class ThridAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, final int i) {
         int viewType = getItemViewType(i);
         switch (viewType){
             case ITEM_TYPE_ONE:
                 ((ThridHolder) viewHolder).thrid_tv.setText(datas.get(i));
+                if (listener != null){
+                    ((ThridHolder) viewHolder).thrid_tv.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            listener.onclick(i);
+                        }
+                    });
+                }
                 break;
             case ITEM_TYPE_TWO:
                 ((ImageHolder) viewHolder).thrid_tv3.setText(datas.get(i));
